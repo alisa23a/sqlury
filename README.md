@@ -1,1 +1,1 @@
-# sqlury
+Sqlury - Make square images without cropping
