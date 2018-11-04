@@ -251,7 +251,20 @@
 				
 			$("#but").click(function(){
 				
-				setFunc();
+				<!-- setFunc(); -->
+				function onDeviceReady()
+				{
+					window.canvas2ImagePlugin.saveImageDataToLibrary(
+						function(msg){
+							console.log(msg);
+						},
+						function(err){
+							console.log(err);
+						},
+						document.getElementById('canvas')
+					);
+				}
+				
 			
 			});
 
