@@ -1,0 +1,11 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "Sqlury",
+  "short_name": "Sqlury",
+  "version": "ml.alisabadass.sqlury",
+  "description": "Square images without cropping.",
+  "author": "Alisa Famina",
+  "icons": [],
+  "start_url": "index.html"
+}
