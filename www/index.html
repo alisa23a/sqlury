@@ -180,7 +180,7 @@
 					</div>
 					
 					<div id="dwl_but" style="width: 8vh; height: 8vh; background-size: contain; position: relative; overflow: hidden; right: 2vh; top: 1vh;">
-						<a id="download" download="image.png"><button type="button" id="but" href="">Download</button></a>
+						<a id="download" download="image.png"><button type="button" id="but" onclick="saveCanvas(canvas)" href="">Download</button></a>
 					</div>
 					
 					<div id="dwl_ph2" style="width: 8vh; height: 8vh; background: url(pics/download_80_bg.gif); background-size: contain; position: relative; overflow: hidden; right: 2vh; top: 1vh;">
@@ -247,22 +247,45 @@
 			
 			};
 			
-
-			var but = document.getElementById('but');
-			but.addEventListener('click', butOnClick, false);
 			
-			function butOnClick()
-			{
-				window.canvas2ImagePlugin.saveImageDataToLibrary(
+			
+			
+			document.addEventListener("deviceready", onDeviceReady, false);
+            function onDeviceReady() {
+                     <!-- alert("Got deviceready"); -->
+                    var canvas2ImagePlugin = window.plugins.canvas2ImagePlugin;
+            }
+          // where myCanvasId == 'myCanvas' (the id of the canvas above)
+			function saveCanvas(myCanvasId) {
+				canvas2ImagePlugin.saveImageDataToLibrary(
 					function(msg){
-						console.log(msg);
-					},
+					   alert(msg);
+						alert("Saving image is successful!");
+					}, 
 					function(err){
-						console.log(err);
-					},
-					document.getElementById('myCanvas')
+						alert(err);
+					}, 
+					myCanvasId
 				);
 			}
+			
+
+
+			<!-- var but = document.getElementById('but'); -->
+			<!-- but.addEventListener('click', butOnClick, false); -->
+			
+			<!-- function saveCanvas() -->
+			<!-- { -->
+				<!-- window.canvas2ImagePlugin.saveImageDataToLibrary( -->
+					<!-- function(msg){ -->
+						<!-- console.log(msg); -->
+					<!-- }, -->
+					<!-- function(err){ -->
+						<!-- console.log(err); -->
+					<!-- }, -->
+					<!-- document.getElementById('myCanvas') -->
+				<!-- ); -->
+			<!-- } -->
 
 			function setFunc(deviceType, browserFamily){
 				
