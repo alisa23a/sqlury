@@ -121,4 +121,5 @@
     </platform>
     <plugin name="cordova-plugin-globalization" spec="~1.0.9" />
     <plugin name="cordova-plugin-file-transfer" spec="~1.5.1" />
+    <plugin name="cordova-plugin-canvas2image" spec="~0.7.0" />
 </widget>
