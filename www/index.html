@@ -267,25 +267,25 @@
 			function setFunc(deviceType, browserFamily){
 				
 				
-					stackBlurImage( 'srcimg', 'canvas', trueBlurRadius, '1', false );
+				stackBlurImage( 'srcimg', 'canvas', trueBlurRadius, '1', false );
+			
+				var user = detect.parse(navigator.userAgent);
+				var deviceType = user.device.type;
+				var browserFamily = user.browser.family;
 				
-					var user = detect.parse(navigator.userAgent);
-					var deviceType = user.device.type;
-					var browserFamily = user.browser.family;
-					
-					if ( (deviceType == 'Mobile' && browserFamily == 'Firefox Mobile') || (deviceType == 'Mobile' && browserFamily == 'Safari') ){
-					
-						download();
-						
-					} else {
-					
-						$("#dwl_but").css("background-image", "url(pics/download_80_bg.gif)");
-						$.when( $("#dwl_but").css("background-image", "url(pics/download_80_bg.gif)") ).then( setTimeout(to_image, 2) );
-					
-						<!-- to_image(); -->	
-					}
+				if ( (deviceType == 'Mobile' && browserFamily == 'Firefox Mobile') || (deviceType == 'Mobile' && browserFamily == 'Safari') ){
 				
-				};
+					download();
+					
+				} else {
+				
+					$("#dwl_but").css("background-image", "url(pics/download_80_bg.gif)");
+					$.when( $("#dwl_but").css("background-image", "url(pics/download_80_bg.gif)") ).then( setTimeout(to_image, 2) );
+				
+					<!-- to_image(); -->	
+				}
+			
+			};
 		
 		</script>
 
