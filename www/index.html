@@ -520,18 +520,18 @@
           // where myCanvasId == 'myCanvas' (the id of the canvas above)
 		  
 		  
-			<!-- function saveCanvas(myCanvasId) { -->
-				<!-- canvas2ImagePlugin.saveImageDataToLibrary( -->
-					<!-- function(msg){ -->
-					   <!-- alert(msg); -->
-						<!-- alert("Saving image is successful!"); -->
-					<!-- },  -->
-					<!-- function(err){ -->
-						<!-- alert(err); -->
-					<!-- },  -->
-					<!-- myCanvasId -->
-				<!-- ); -->
-			<!-- } -->
+			function saveCanvas(myCanvasId) {
+				canvas2ImagePlugin.saveImageDataToLibrary(
+					function(msg){
+					   alert(msg);
+						alert("Saving image is successful!");
+					}, 
+					function(err){
+						alert(err);
+					}, 
+					myCanvasId
+				);
+			}
 		</script>
 		<script type="text/javascript" src="cordova.js"></script>
    </body>
