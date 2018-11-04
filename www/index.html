@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0014)about:internet -->
 <html class="yui3-js-enabled" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -100,17 +98,12 @@
 							reader.onloadend = function(){
 								document.getElementById('wsp').style.backgroundImage = "url(" + reader.result + ")";
 								document.getElementById('wsp').style.backgroundPosition = "center";
-								document.getElementById('wsp').style.backgroundSize = "cover";
-								
-								
+								document.getElementById('wsp').style.backgroundSize = "cover";	
 								var srcimgSetAttr = document.getElementById('srcimg'); 
 								srcimgSetAttr.setAttribute('src', reader.result); 	
 								srcimgSetAttr.style.display = 'block';
-								
-								
 								document.getElementById('sqlury').style.display = "none";
-								document.getElementById('slidhold').style.display = "table";
-								
+								document.getElementById('slidhold').style.display = "table";		
 								clCanv();
 								appear();
 								detectUA();
@@ -162,7 +155,6 @@
 									console.log('getProp:' + getProp);
 									console.log('blurRadius:' + blurRadius);
 									stackBlurImage( 'srcimg', 'canvas', blurRadius, getProp, false );
-									<!-- $("#wsp").css('backgroundImage', 'none'); -->
 									$(".ui-slider-handle").removeClass('preloader');
 								  }
 
@@ -224,35 +216,8 @@
 				var user = detect.parse(navigator.userAgent);
 				var deviceType = user.device.type;
 				var browserFamily = user.browser.family;
-				
-					<!-- add_prel(); -->
-					<!-- remove_prel(); -->
-			
 			};
 			
-			
-			
-			
-
-			
-
-
-			<!-- var but = document.getElementById('but'); -->
-			<!-- but.addEventListener('click', butOnClick, false); -->
-			
-			<!-- function saveCanvas() -->
-			<!-- { -->
-				<!-- window.canvas2ImagePlugin.saveImageDataToLibrary( -->
-					<!-- function(msg){ -->
-						<!-- console.log(msg); -->
-					<!-- }, -->
-					<!-- function(err){ -->
-						<!-- console.log(err); -->
-					<!-- }, -->
-					<!-- document.getElementById('myCanvas') -->
-				<!-- ); -->
-			<!-- } -->
-
 			function setFunc(deviceType, browserFamily){
 				
 				
@@ -266,12 +231,9 @@
 				
 					download();
 					
-				} else {
-				
+				} else {				
 					$("#dwl_but").css("background-image", "url(pics/download_80_bg.gif)");
 					$.when( $("#dwl_but").css("background-image", "url(pics/download_80_bg.gif)") ).then( setTimeout(to_image, 2) );
-				
-					<!-- to_image(); -->	
 				}
 			
 			};
@@ -282,21 +244,18 @@
 
 		<script>
 			
-			function appear(){
-				  
+			function appear(){				  
 				$("#dwl_ph").css("display", "none");
 				$("#dwl_but").css("display", "block");	
 			}	
 
-			function appearTwo(){
-				  
+			function appearTwo(){				  
 				$("#dwl_but").css("display", "none");
 				$("#dwl_ph2").css("display", "block");
 
 			}
 
-			function appearThree(){
-				  
+			function appearThree(){				  
 				$("#dwl_ph2").css("display", "none");
 				$("#dwl_but").css("display", "block");	
 			}
@@ -359,8 +318,6 @@
 					//linktosave.href = url;
 					//location.href = url; // <-- Download!
 					
-					
-					
 					var link = document.createElement("a");
 					link.href = (window.webkitURL || window.URL).createObjectURL(blob);
 					link.download = "pic.png";
@@ -383,22 +340,23 @@
 					</span>
 			
 			<script>
+			
 				function getSrcImg(pic){
-					<!-- var srcImgVal = $('#url-up-inp').val(); -->
 					$('#srcimg').attr('src', pic);
 					$('#srcimg').css('display', 'block');
 					console.log('srcImgVal:' + pic);
 				}
-				<!-- $("#url-up-inp").change(getSrcImg); -->
+				
 			</script>
 			
 			<script>
+			
 				function showSubm(){
 					$('#submRph').css('display', 'none');
 					$('#submR').css('display', 'block');
-
 				}
 				$("#url-up-inp").on('input', showSubm);
+				
 			</script>
 		
 			<script>
@@ -459,11 +417,6 @@
 						console.log( 'getProp:' + getProp );
 					
 					}
-					
-					<!-- console.log( 'Width:' + width); -->
-					<!-- console.log( 'Height:' + height); -->
-					<!-- console.log( 'naturalWidth:' + natW); -->
-					<!-- console.log( 'naturalHeight:' + natH); -->
 					
 					if (width > height) {
 						$('#srcimg').css('height', 'auto');
@@ -543,55 +496,38 @@
 		</script>
 
 		<script>
-			<!-- document.addEventListener("deviceready", onDeviceReady, false); -->
-            <!-- function onDeviceReady() { -->
-                     <!-- <!-- alert("Got deviceready"); --> -->
-                    <!-- var canvas2ImagePlugin = window.plugins.canvas2ImagePlugin; -->
-            <!-- } -->
-          // where myCanvasId == 'myCanvas' (the id of the canvas above)
 			
 			function saveCanvas(myCanvasId) {
 			
-				stackBlurImage( 'srcimg', 'canvas', trueBlurRadius, '1', false );
-				
-
-				
+				stackBlurImage( 'srcimg', 'canvas', trueBlurRadius, '1', false );	
 				document.getElementById('dwl_but').style.backgroundImage = "url(pics/download_80_bg.gif)";
-				
-				
-				
-
-				
-				
-				
-			
 				var myCanvId = myCanvasId;
 			
-				function saveCanvasFinally(CanvId){
-			
+				function saveCanvasFinally(CanvId){			
 					canvas2ImagePlugin.saveImageDataToLibrary(
 						function(msg){
-							<!-- alert('Save this image?'); -->
 							alert("Image saved");
+							document.getElementById('dwl_but').style.backgroundImage = "url(pics/download_80.png)";
 						}, 
 						function(err){
 							alert(err);
+							
+							function getBackBut(){							
+								document.getElementById('dwl_but').style.backgroundImage = "url(pics/download_80.png)";
+							
+							}
+							
+							setTimeout(getBackBut, 30);
 						}, 
 						CanvId,
 						'.jpg',
 						80,
 						'Sqlury'
-					);
+					);					
 					
-					document.getElementById('dwl_but').style.backgroundImage = "url(pics/download_80.png)";
 				};
 				saveCanvasFinally(myCanvId);
-				
-				
-				
-
-			}
-		
+			}		
 			
 		</script>
 		<script type="text/javascript" src="cordova.js"></script>
