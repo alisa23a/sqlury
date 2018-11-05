@@ -510,29 +510,34 @@
 				};
 				
 				swBut(myCanvasId, function(){
-					stackBlurImage( 'srcimg', 'canvas', trueBlurRadius, '1', false );
-					canvas2ImagePlugin.saveImageDataToLibrary(
+				
+					function setT(){
+						stackBlurImage( 'srcimg', 'canvas', trueBlurRadius, '1', false );
+						canvas2ImagePlugin.saveImageDataToLibrary(
+						
+							function(msg){
+								alert("Image saved");
+								function getBackBut(){							
+									document.getElementById('dwl_but').style.backgroundImage = "url(pics/download_80.png)";
+								}
+								setTimeout(getBackBut, 30);
+							}, 
+							function(err){
+								alert(err);
+								
+								function getBackBut(){							
+									document.getElementById('dwl_but').style.backgroundImage = "url(pics/download_80.png)";
+								}
+								setTimeout(getBackBut, 30);
+							}, 
+							myCanvasId,
+							'.jpg',
+							80,
+							'Sqlury'
+						);
+					};
+					setTimeout(setT, 3000);
 					
-						function(msg){
-							alert("Image saved");
-							function getBackBut(){							
-								document.getElementById('dwl_but').style.backgroundImage = "url(pics/download_80.png)";
-							}
-							setTimeout(getBackBut, 1000);
-						}, 
-						function(err){
-							alert(err);
-							
-							function getBackBut(){							
-								document.getElementById('dwl_but').style.backgroundImage = "url(pics/download_80.png)";
-							}
-							setTimeout(getBackBut, 1000);
-						}, 
-						myCanvasId,
-						'.jpg',
-						80,
-						'Sqlury'
-					);
 				});				
 				
 <!-- 				saveCanvasFinally(myCanvId); -->
