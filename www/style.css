@@ -27,7 +27,7 @@ body{
 }
 
 #pan,#bot{
-	width:100%;
+	width:100vw;
 	height:10vh;
 	background:#333;
 	margin:0 auto;
