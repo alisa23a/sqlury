@@ -355,7 +355,7 @@ color: #777;
 
 #sqlury{
 	display:table;
-	width:100%;
+	width:56vw;
     height: 5vh;	
 	/* background-color: #CDCDCD; */
 	border-radius:3vh;	
@@ -460,6 +460,7 @@ color: #777;
 
 #m_tcell, #bm_tcell{
 	width:56vw;
+	display:none;
 }
 
 #bm_tcell{
