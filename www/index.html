@@ -515,7 +515,10 @@
 						
 							function(msg){
 								alert("Image saved");
-								document.getElementById('dwl_but').style.backgroundImage = "url(pics/download_80.png)";
+								function getBackBut(){							
+									document.getElementById('dwl_but').style.backgroundImage = "url(pics/download_80.png)";
+								}
+								setTimeout(getBackBut, 1000);
 							}, 
 							function(err){
 								alert(err);
@@ -523,7 +526,7 @@
 								function getBackBut(){							
 									document.getElementById('dwl_but').style.backgroundImage = "url(pics/download_80.png)";
 								}
-								setTimeout(getBackBut, 30);
+								setTimeout(getBackBut, 1000);
 							}, 
 							myCanvasId,
 							'.jpg',
