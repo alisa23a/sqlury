@@ -348,7 +348,7 @@ color: #777;
 	position: relative;
     height: 0.4vh;
     background-color: #666;
-	margin: 0 2.5vh;
+	margin: 0 2.4vh 0 2.5vh;
 	border:none;
 }
 
@@ -377,8 +377,8 @@ color: #777;
 
 .ui-slider-handle{
 	background-color: #2c2d2d !important;	
-	height: 5vh !important;
-	width: 5vh !important;
+	height: 4.9vh !important;
+	width: 4.9vh !important;
 	border-radius: 3vh !important;
 	border:none !important;
 	outline:none !important;
