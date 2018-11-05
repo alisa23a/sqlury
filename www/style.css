@@ -585,6 +585,54 @@ code span {
 
 /* End of Alert Box */
 
+/* CSS Preloader */
+
+#wrapper {
+	position: fixed;
+    display: none;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    z-index: 9000;
+}
+
+.circonf-wrapper {
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	height: 100vh;
+}
+
+.circonf {
+    margin: 0;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 0.5vh solid #fff;
+    animation: circ-anim 0.7s linear infinite;
+}
+
+.circonf-2 {
+	border-color: #fff;
+	border-bottom-color: transparent;
+}
+
+@keyframes circ-anim {
+	from {
+		transform: rotate(0);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+/* End of CSS Preloader */
+
 @media all and (orientation:portrait){
 	
 	#alertBox{

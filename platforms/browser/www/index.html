@@ -447,6 +447,20 @@
 
 		</div>
 		
+		<!-- CSS Preloader -->
+		
+		<div id="wrapper">
+
+		  <div class="circonf-wrapper">
+
+			<div class="circonf circonf-2">
+			</div>
+			
+		  </div> 
+		</div>
+		
+		<!-- /CSS Preloader -->
+		
 		<!-- Custom Alert -->
 		
 		<script>
@@ -504,7 +518,9 @@
 			function saveCanvas(myCanvasId) {
 			
 				function swBut(myCanvasId, callback){
-					document.getElementById('dwl_but').style.backgroundImage = "url(pics/download_80_bg.gif)";
+					document.getElementById('dwl_but').style.display = "none";
+					document.getElementById('dwl_ph').style.display = "block";
+					document.getElementById('wrapper').style.display = "table";
 
 					callback();
 				};
@@ -518,7 +534,9 @@
 							function(msg){
 								alert("Image saved");
 								function getBackBut(){							
-									document.getElementById('dwl_but').style.backgroundImage = "url(pics/download_80.png)";
+									document.getElementById('dwl_ph').style.display = "none";
+									document.getElementById('dwl_but').style.display = "block";
+									document.getElementById('wrapper').style.display = "none";
 								}
 								setTimeout(getBackBut, 30);
 							}, 
@@ -526,7 +544,9 @@
 								alert(err);
 								
 								function getBackBut(){							
-									document.getElementById('dwl_but').style.backgroundImage = "url(pics/download_80.png)";
+									document.getElementById('dwl_ph').style.display = "none";
+									document.getElementById('dwl_but').style.display = "block";
+									document.getElementById('wrapper').style.display = "none";
 								}
 								setTimeout(getBackBut, 30);
 							}, 
