@@ -85,7 +85,7 @@
     <body>	
 		<div id="pan">
 			<div id="panin">
-				<span class="tcell" id="l_tcell">
+				<div class="tcell" id="ls_tcell">
 					<div class="up_but">
 						<input type='file' id="upload" />
 					</div>
@@ -116,8 +116,8 @@
 						}
 					</script>
 					
-				</span>
-				<span class="tcell" id="m_tcell">
+				</div>
+				<div class="tcell" id="ms_tcell">
 					<div id="slidhold">
 						<div id="shinner">
 							<div id="slider"></div>
@@ -163,21 +163,16 @@
 							} );
 						}
 					</script>				
-					
-					<div id="centerlog"></div>
 
-				</span>
-				<span class="tcell" id="r_tcell">
-					<div id="dwl_ph" style="width: 8vh; height: 8vh; background: url(pics/download_33.png); background-size: contain; position: relative; overflow: hidden; right: 2vh; top: 1vh;">
+				</div>
+				<div class="tcell" id="rs_tcell">
+					<div id="dwl_ph">
 					</div>
 					
-					<div id="dwl_but" style="width: 8vh; height: 8vh; background-size: contain; position: relative; overflow: hidden; right: 2vh; top: 1vh;">
+					<div id="dwl_but">
 						<a id="download" download="image.png"><button type="button" id="but" onclick="saveCanvas(canvas)" href="">Download</button></a>
 					</div>
-					
-					<div id="dwl_ph2" style="width: 8vh; height: 8vh; background: url(pics/download_80_bg.gif); background-size: contain; position: relative; overflow: hidden; right: 2vh; top: 1vh;">
-					</div>
-				</span>
+				</div>
 			</div>
 		</div>
 	
@@ -246,18 +241,18 @@
 			
 			function appear(){				  
 				$("#dwl_ph").css("display", "none");
-				$("#dwl_but").css("display", "block");	
+				$("#dwl_but").css("display", "inline-block");	
 			}	
 
 			function appearTwo(){				  
 				$("#dwl_but").css("display", "none");
-				$("#dwl_ph2").css("display", "block");
+				$("#dwl_ph2").css("display", "inline-block");
 
 			}
 
 			function appearThree(){				  
 				$("#dwl_ph2").css("display", "none");
-				$("#dwl_but").css("display", "block");	
+				$("#dwl_but").css("display", "inline-block");	
 			}
 			
 		</script>
@@ -519,7 +514,7 @@
 			
 				function swBut(myCanvasId, callback){
 					document.getElementById('dwl_but').style.display = "none";
-					document.getElementById('dwl_ph').style.display = "block";
+					document.getElementById('dwl_ph').style.display = "inline-block";
 					document.getElementById('wrapper').style.display = "table";
 
 					callback();
@@ -535,7 +530,7 @@
 								alert("Image saved");
 								function getBackBut(){							
 									document.getElementById('dwl_ph').style.display = "none";
-									document.getElementById('dwl_but').style.display = "block";
+									document.getElementById('dwl_but').style.display = "inline-block";
 									document.getElementById('wrapper').style.display = "none";
 								}
 								setTimeout(getBackBut, 30);
@@ -545,7 +540,7 @@
 								
 								function getBackBut(){							
 									document.getElementById('dwl_ph').style.display = "none";
-									document.getElementById('dwl_but').style.display = "block";
+									document.getElementById('dwl_but').style.display = "inline-block";
 									document.getElementById('wrapper').style.display = "none";
 								}
 								setTimeout(getBackBut, 30);
