@@ -505,34 +505,34 @@
 			
 				function swBut(myCanvasId, callback){
 					document.getElementById('dwl_but').style.backgroundImage = "url(pics/download_80_bg.gif)";
-					stackBlurImage( 'srcimg', 'canvas', trueBlurRadius, '1', false );
+
 					callback();
 				};
 				
 				swBut(myCanvasId, function(){
-
-						canvas2ImagePlugin.saveImageDataToLibrary(
-						
-							function(msg){
-								alert("Image saved");
-								function getBackBut(){							
-									document.getElementById('dwl_but').style.backgroundImage = "url(pics/download_80.png)";
-								}
-								setTimeout(getBackBut, 1000);
-							}, 
-							function(err){
-								alert(err);
-								
-								function getBackBut(){							
-									document.getElementById('dwl_but').style.backgroundImage = "url(pics/download_80.png)";
-								}
-								setTimeout(getBackBut, 1000);
-							}, 
-							myCanvasId,
-							'.jpg',
-							80,
-							'Sqlury'
-						);
+					stackBlurImage( 'srcimg', 'canvas', trueBlurRadius, '1', false );
+					canvas2ImagePlugin.saveImageDataToLibrary(
+					
+						function(msg){
+							alert("Image saved");
+							function getBackBut(){							
+								document.getElementById('dwl_but').style.backgroundImage = "url(pics/download_80.png)";
+							}
+							setTimeout(getBackBut, 1000);
+						}, 
+						function(err){
+							alert(err);
+							
+							function getBackBut(){							
+								document.getElementById('dwl_but').style.backgroundImage = "url(pics/download_80.png)";
+							}
+							setTimeout(getBackBut, 1000);
+						}, 
+						myCanvasId,
+						'.jpg',
+						80,
+						'Sqlury'
+					);
 				});				
 				
 <!-- 				saveCanvasFinally(myCanvId); -->
