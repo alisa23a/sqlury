@@ -1,46 +1,31 @@
 {
-    "prepare_queue": {
-        "installed": [],
-        "uninstalled": []
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-canvas2image": {
+      "PACKAGE_NAME": "ml.alisabadass.sqlury"
     },
-    "config_munge": {
-        "files": {}
+    "cordova-plugin-console": {
+      "PACKAGE_NAME": "ml.alisabadass.sqlury"
     },
-    "installed_plugins": {
-        "cordova-plugin-battery-status": {
-            "PACKAGE_NAME": "ml.alisabadass.sqlury"
-        },
-        "cordova-plugin-camera": {
-            "PACKAGE_NAME": "ml.alisabadass.sqlury"
-        },
-        "cordova-plugin-canvas2image": {
-            "PACKAGE_NAME": "ml.alisabadass.sqlury"
-        },
-        "cordova-plugin-console": {
-            "PACKAGE_NAME": "ml.alisabadass.sqlury"
-        },
-        "cordova-plugin-contacts": {
-            "PACKAGE_NAME": "ml.alisabadass.sqlury"
-        },
-        "cordova-plugin-device": {
-            "PACKAGE_NAME": "ml.alisabadass.sqlury"
-        },
-        "cordova-plugin-device-motion": {
-            "PACKAGE_NAME": "ml.alisabadass.sqlury"
-        },
-        "cordova-plugin-device-orientation": {
-            "PACKAGE_NAME": "ml.alisabadass.sqlury"
-        },
-        "cordova-plugin-dialogs": {
-            "PACKAGE_NAME": "ml.alisabadass.sqlury"
-        },
-        "cordova-plugin-file-transfer": {
-            "PACKAGE_NAME": "ml.alisabadass.sqlury"
-        }
+    "cordova-plugin-device-orientation": {
+      "PACKAGE_NAME": "ml.alisabadass.sqlury"
     },
-    "dependent_plugins": {
-        "cordova-plugin-file": {
-            "PACKAGE_NAME": "ml.alisabadass.sqlury"
-        }
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "ml.alisabadass.sqlury"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "ml.alisabadass.sqlury"
     }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "ml.alisabadass.sqlury"
+    }
+  }
 }
