@@ -447,6 +447,8 @@
 
 		</div>
 		
+		<!-- Custom Alert -->
+		
 		<script>
 			var ALERT_TITLE = "Oops!";
 			var ALERT_BUTTON_TEXT = "Ok";
@@ -494,40 +496,43 @@
 				document.getElementsByTagName("body")[0].removeChild(document.getElementById("modalContainer"));
 			}
 		</script>
+		
+		<!-- /Custom Alert -->
 
 		<script>
 			
 			function saveCanvas(myCanvasId) {
 			
-				document.getElementById('dwl_but').style.backgroundImage = "url(pics/download_80_bg.gif)";			
-				setTimeout( stackBlurImage( 'srcimg', 'canvas', trueBlurRadius, '1', false ), 30 );	
-
-				var myCanvId = myCanvasId;
-			
-				function saveCanvasFinally(CanvId){			
-					canvas2ImagePlugin.saveImageDataToLibrary(
-						function(msg){
-							alert("Image saved");
-							document.getElementById('dwl_but').style.backgroundImage = "url(pics/download_80.png)";
-						}, 
-						function(err){
-							alert(err);
-							
-							function getBackBut(){							
-								document.getElementById('dwl_but').style.backgroundImage = "url(pics/download_80.png)";
-							
-							}
-							
-							setTimeout(getBackBut, 30);
-						}, 
-						CanvId,
-						'.jpg',
-						80,
-						'Sqlury'
-					);					
-					
+				function swBut(myCanvasId, callback){
+					document.getElementById('dwl_but').style.backgroundImage = "url(pics/download_80_bg.gif)";
+					stackBlurImage( 'srcimg', 'canvas', trueBlurRadius, '1', false );
+					callback();
 				};
-				saveCanvasFinally(myCanvId);
+				
+				swBut(myCanvasId, function(){
+
+						canvas2ImagePlugin.saveImageDataToLibrary(
+						
+							function(msg){
+								alert("Image saved");
+								document.getElementById('dwl_but').style.backgroundImage = "url(pics/download_80.png)";
+							}, 
+							function(err){
+								alert(err);
+								
+								function getBackBut(){							
+									document.getElementById('dwl_but').style.backgroundImage = "url(pics/download_80.png)";
+								}
+								setTimeout(getBackBut, 30);
+							}, 
+							myCanvasId,
+							'.jpg',
+							80,
+							'Sqlury'
+						);
+				});				
+				
+<!-- 				saveCanvasFinally(myCanvId); -->
 			}		
 			
 		</script>
