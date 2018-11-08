@@ -21,6 +21,9 @@
     },
     "cordova-plugin-file-transfer": {
       "PACKAGE_NAME": "ml.alisabadass.sqlury"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "ml.alisabadass.sqlury"
     }
   },
   "dependent_plugins": {
