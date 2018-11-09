@@ -25,12 +25,15 @@
     "cordova-plugin-splashscreen": {
       "PACKAGE_NAME": "ml.alisabadass.sqlury"
     },
-    "cordova-plugin-socialsharing": {
+    "cordova-plugin-x-socialsharing": {
       "PACKAGE_NAME": "ml.alisabadass.sqlury"
     }
   },
   "dependent_plugins": {
     "cordova-plugin-file": {
+      "PACKAGE_NAME": "ml.alisabadass.sqlury"
+    },
+    "es6-promise-plugin": {
       "PACKAGE_NAME": "ml.alisabadass.sqlury"
     }
   }
