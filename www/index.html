@@ -105,7 +105,7 @@
 								document.getElementById('sqlury').style.display = "none";
 								document.getElementById('slidhold').style.display = "table";		
 								clCanv();
-								<!-- appear(); -->
+								disappear();
 								detectUA();
 							}
 							if(file){
@@ -250,7 +250,14 @@
 				$("#dwl_but").css("display", "inline-block");
 				$("#share_ph").css("display", "none");
 				$("#share_but").css("display", "inline-block");					
-			}	
+			}
+
+			function disappear(){				  
+				$("#dwl_ph").css("display", "inline-block");
+				$("#dwl_but").css("display", "none");
+				$("#share_ph").css("display", "inline-block");
+				$("#share_but").css("display", "none");				
+			}
 
 			function appearTwo(){				  
 				$("#dwl_but").css("display", "none");
@@ -356,12 +363,10 @@
 				document.getElementById('shareBut').addEventListener('click', share, true);
 				function share(){
 
-
+					var picName = Math.floor(Date.now() / 1000);
 					var shareImage = document.getElementById("canvas").toDataURL("image/png");
-
 				
-<!-- 					var shareUrl = document.getElementById("theimage").src = canvas.toDataURL(); -->				
-					window.plugins.socialsharing.share(null, 'picture', shareImage, null);				
+					window.plugins.socialsharing.share(null, picName, shareImage, null);				
 				};
 			
 			</script>
