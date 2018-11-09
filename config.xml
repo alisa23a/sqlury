@@ -113,5 +113,6 @@
     <plugin name="cordova-plugin-file-transfer" spec="~1.5.1" />
     <plugin name="cordova-plugin-canvas2image" spec="~0.7.0" />
     <plugin name="cordova-plugin-splashscreen" spec="~3.2.2" />
+    <gap:plugin name="cordova-plugin-socialsharing" source="npm" />
     <plugin name="cordova-plugin-socialsharing" spec="~4.3.81" />
 </widget>
