@@ -105,7 +105,7 @@
 								document.getElementById('sqlury').style.display = "none";
 								document.getElementById('slidhold').style.display = "table";		
 								clCanv();
-								appear();
+								<!-- appear(); -->
 								detectUA();
 							}
 							if(file){
@@ -156,11 +156,17 @@
 									console.log('blurRadius:' + blurRadius);
 									stackBlurImage( 'srcimg', 'canvas', blurRadius, getProp, false );
 									$(".ui-slider-handle").removeClass('preloader');
+									
+									$("#dwl_ph").css("display", "none");
+									$("#dwl_but").css("display", "inline-block");
+									$("#share_ph").css("display", "none");
+									$("#share_but").css("display", "inline-block");
 								  }
 
 								});
 					 
 							} );
+							<!-- appear(); -->
 						}
 					</script>				
 
@@ -241,7 +247,9 @@
 			
 			function appear(){				  
 				$("#dwl_ph").css("display", "none");
-				$("#dwl_but").css("display", "inline-block");	
+				$("#dwl_but").css("display", "inline-block");
+				$("#share_ph").css("display", "none");
+				$("#share_but").css("display", "inline-block");					
 			}	
 
 			function appearTwo(){				  
@@ -330,9 +338,33 @@
 		</script>
 
 		<div id="bot">
-					<span class="tcell" id="bl_tcell">
-						<a href="http://alisabadass.tumblr.com"><img src="pics/alisa600_3_1.png" alt="" /></a>
-					</span>
+			<div class="tcell" id="bls_tcell">
+				<a href="http://alisabadass.tumblr.com"><img src="pics/alisa600_3_1.png" alt="" /></a>
+			</div>
+			<div class="tcell" id="bms_tcell">
+			</div>
+			<div class="tcell" id="brs_tcell">
+				<div id="share_but">
+					<button type="button" id="shareBut" onclick="share()">Share</button>
+				</div>
+				<div id="share_ph">
+				</div>
+			</div>
+					
+			<script>
+				
+				document.getElementById('shareBut').addEventListener('click', share, true);
+				function share(){
+
+
+					var shareImage = document.getElementById("canvas").toDataURL("image/png");
+
+				
+<!-- 					var shareUrl = document.getElementById("theimage").src = canvas.toDataURL(); -->				
+					window.plugins.socialsharing.share(null, 'picture', shareImage, null);				
+				};
+			
+			</script>
 			
 			<script>
 			
@@ -363,8 +395,11 @@
 					document.getElementById('wsp').style.backgroundImage = "url(" + imgUrl + ")";
 					document.getElementById('wsp').style.backgroundPosition = "center";
 					document.getElementById('wsp').style.backgroundSize = "cover";
+					
+					
+					
 					clCanv();
-					appear();
+<!-- 					appear(); -->
 					detectUA();
 
 					console.log('call goSlid');
@@ -515,6 +550,8 @@
 				function swBut(myCanvasId, callback){
 					document.getElementById('dwl_but').style.display = "none";
 					document.getElementById('dwl_ph').style.display = "inline-block";
+					<!-- document.getElementById('share_but').style.display = "none"; -->
+					<!-- document.getElementById('share_ph').style.display = "inline-block"; -->					
 					document.getElementById('wrapper').style.display = "table";
 
 					callback();
@@ -531,6 +568,8 @@
 								function getBackBut(){							
 									document.getElementById('dwl_ph').style.display = "none";
 									document.getElementById('dwl_but').style.display = "inline-block";
+									<!-- document.getElementById('share_ph').style.display = "none"; -->
+									<!-- document.getElementById('share_but').style.display = "inline-block"; -->
 									document.getElementById('wrapper').style.display = "none";
 								}
 								setTimeout(getBackBut, 30);
