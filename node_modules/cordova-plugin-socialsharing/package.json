@@ -1,0 +1,74 @@
+{
+  "_from": "cordova-plugin-socialsharing",
+  "_id": "cordova-plugin-socialsharing@4.3.81",
+  "_inBundle": false,
+  "_integrity": "sha1-i8sIgzsEVhV0ws0BqFAOHjafYjg=",
+  "_location": "/cordova-plugin-socialsharing",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-plugin-socialsharing",
+    "name": "cordova-plugin-socialsharing",
+    "escapedName": "cordova-plugin-socialsharing",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-socialsharing/-/cordova-plugin-socialsharing-4.3.81.tgz",
+  "_shasum": "8bcb08833b04561574c2cd01a8500e1e369f6238",
+  "_spec": "cordova-plugin-socialsharing",
+  "_where": "E:\\box\\stud\\Github\\sqlury",
+  "author": {
+    "name": "Eddy Verbruggen"
+  },
+  "bugs": {
+    "url": "https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-socialsharing",
+    "platforms": [
+      "android",
+      "ios",
+      "wp8"
+    ]
+  },
+  "deprecated": false,
+  "description": "Cordova Plugin SocialSharing",
+  "homepage": "https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin/blob/ac66d5d/README.md",
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-wp8",
+    "cordova",
+    "phonegap",
+    "phonegap build",
+    "SocialSharing",
+    "EddyVerbruggen",
+    "Social Sharing",
+    "Twitter",
+    "Facebook",
+    "Email",
+    "SMS",
+    "WhatsApp"
+  ],
+  "license": "MIT",
+  "maintainers": [
+    {
+      "name": "appsystem",
+      "email": "appsystemstaff@gmail.com"
+    }
+  ],
+  "name": "cordova-plugin-socialsharing",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git"
+  },
+  "version": "4.3.81"
+}
