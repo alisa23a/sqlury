@@ -1,0 +1,608 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html class="yui3-js-enabled" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter50971847 = new Ya.Metrika2({
+                    id:50971847,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/tag.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks2");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/50971847" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+	
+        <title>Sqlury</title>         
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="height=device-height, initial-scale=1">
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<link href="style.css" rel="stylesheet">
+		<style type="text/css" media="screen"> 
+			body { text-align:center; }
+			.results{ display:none; }
+		</style>
+		
+		<script>
+			window.addEventListener("load",function() {
+				setTimeout(function(){
+					// This hides the address bar:
+					window.scrollTo(0, 1);
+				}, 0);
+			});
+		</script>
+
+		<script src="js/detect.js"></script>
+		
+		<script src="js/StackBlur.js" language="javascript"></script>
+		<script type="text/javascript">
+		/* <![CDATA[ */
+			(function() {
+				var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+				
+				s.type = 'text/javascript';
+				s.async = true;
+				s.src = 'http://api.flattr.com/js/0.5.0/load.js?mode=auto';
+				
+				t.parentNode.insertBefore(s, t);
+			})();
+		/* ]]> */
+		</script>
+		
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script src="js/jquery.ui.touch-punch.min.js"></script>
+		<script>
+		$( function() {
+			$( ".ui-slider-handle" ).draggable({
+				containment: "parent"
+			});
+		} );
+		</script>
+	</head>
+    <body>	
+		<div id="pan">
+			<div id="panin">
+				<div class="tcell" id="ls_tcell">
+					<div class="up_but">
+						<input type='file' id="upload" />
+					</div>
+
+					<script>
+						document.getElementById('upload').addEventListener('change', readURL, true);
+						function readURL(){
+							var file = document.getElementById("upload").files[0];
+							var reader = new FileReader();
+							reader.onloadend = function(){
+								document.getElementById('wsp').style.backgroundImage = "url(" + reader.result + ")";
+								document.getElementById('wsp').style.backgroundPosition = "center";
+								document.getElementById('wsp').style.backgroundSize = "cover";	
+								var srcimgSetAttr = document.getElementById('srcimg'); 
+								srcimgSetAttr.setAttribute('src', reader.result); 	
+								srcimgSetAttr.style.display = 'block';
+								document.getElementById('sqlury').style.display = "none";
+								document.getElementById('slidhold').style.display = "table";		
+								clCanv();
+								disappear();
+								detectUA();
+							}
+							if(file){
+								reader.readAsDataURL(file);
+							}else{
+							}
+							goSlid();
+						}
+					</script>
+					
+				</div>
+				<div class="tcell" id="ms_tcell">
+					<div id="slidhold">
+						<div id="shinner">
+							<div id="slider"></div>
+						</div>
+					</div>
+					<div id="sqlury">
+						<div id="sqlin">
+							<img src="pics/sqlury.png">
+						</div>
+					</div>
+					
+					<script>
+						var blurRadius = 1;	
+						function goSlid(){
+							
+							console.log('goSlid!');
+							
+							$( function() {
+								$("#slider").slider({
+								  value:5,
+								  min: 5,
+								  max: 100,
+								  <!-- step: 5, -->
+								  stop: function( event, ui ) {
+									console.log( 'NewSliderVal:' + $( "#slider" ).slider( "value" ) );
+									$(".ui-slider-handle").addClass('preloader');
+									
+									console.log('Preloader!');
+									var showSrc = $('#srcimg').attr('src');
+									console.log('#srcimg url:' + showSrc);
+									
+									trueBlurRadius = $( "#slider" ).slider( "value" );
+									console.log('trueBlurRadius:' + trueBlurRadius);
+									blurRadius = Math.round( trueBlurRadius / getProp );
+									console.log('getProp:' + getProp);
+									console.log('blurRadius:' + blurRadius);
+									stackBlurImage( 'srcimg', 'canvas', blurRadius, getProp, false );
+									$(".ui-slider-handle").removeClass('preloader');
+									
+									$("#dwl_ph").css("display", "none");
+									$("#dwl_but").css("display", "inline-block");
+									$("#share_ph").css("display", "none");
+									$("#share_but").css("display", "inline-block");
+								  }
+
+								});
+					 
+							} );
+							<!-- appear(); -->
+						}
+					</script>				
+
+				</div>
+				<div class="tcell" id="rs_tcell">
+					<div id="dwl_ph">
+					</div>
+					
+					<div id="dwl_but">
+						<a id="download" download="image.png"><button type="button" id="but" onclick="saveCanvas(canvas)" href="">Download</button></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<div id="imageHolder">
+			<span>
+				<div id="wsp" style="background-position:center;">
+					<span>
+						<img src="#" id="srcimg" alt="image"/>						
+					</span>				
+				</div>
+			</span>
+		</div>
+		
+		<div id="canvasHolder" style="">
+			<div id="canwrap">
+				<canvas height="325" width="325" id="canvas"></canvas>
+			</div>
+		</div>
+
+        <image id="theimage" style="display:none"></image>
+		
+		<script>
+			function clCanv(){
+				document.getElementById('canvas');
+				var w = canvas.width;
+				var h = canvas.height;
+				var context = canvas.getContext("2d");
+				context.clearRect( 0, 0, w, h );
+			}
+		</script>
+		
+		<script>
+		
+			function detectUA(){
+			
+				var user = detect.parse(navigator.userAgent);
+				var deviceType = user.device.type;
+				var browserFamily = user.browser.family;
+			};
+			
+			function setFunc(deviceType, browserFamily){
+				
+				
+				stackBlurImage( 'srcimg', 'canvas', trueBlurRadius, '1', false );
+			
+				var user = detect.parse(navigator.userAgent);
+				var deviceType = user.device.type;
+				var browserFamily = user.browser.family;
+				
+				if ( (deviceType == 'Mobile' && browserFamily == 'Firefox Mobile') || (deviceType == 'Mobile' && browserFamily == 'Safari') ){
+				
+					download();
+					
+				} else {				
+					$("#dwl_but").css("background-image", "url(pics/download_80_bg.gif)");
+					$.when( $("#dwl_but").css("background-image", "url(pics/download_80_bg.gif)") ).then( setTimeout(to_image, 2) );
+				}
+			
+			};
+		
+		</script>
+		
+
+
+		<script>
+			
+			function appear(){				  
+				$("#dwl_ph").css("display", "none");
+				$("#dwl_but").css("display", "inline-block");
+				$("#share_ph").css("display", "none");
+				$("#share_but").css("display", "inline-block");					
+			}
+
+			function disappear(){				  
+				$("#dwl_ph").css("display", "inline-block");
+				$("#dwl_but").css("display", "none");
+				$("#share_ph").css("display", "inline-block");
+				$("#share_but").css("display", "none");				
+			}
+
+			function appearTwo(){				  
+				$("#dwl_but").css("display", "none");
+				$("#dwl_ph2").css("display", "inline-block");
+
+			}
+
+			function appearThree(){				  
+				$("#dwl_ph2").css("display", "none");
+				$("#dwl_but").css("display", "inline-block");	
+			}
+			
+		</script>
+		
+		<script>		
+			function download(){
+				var download = document.getElementById("download");
+				var image = document.getElementById("canvas").toDataURL("image/png")
+							.replace("image/png", "image/octet-stream");
+				download.setAttribute("href", image);
+				
+				$("#dwl_but").css("background-image", "url(pics/download_80.png)");
+			}
+					
+		</script>
+		
+		<script>
+			function to_image(){
+				var canvas = document.getElementById("canvas");
+				document.getElementById("theimage").src = canvas.toDataURL();
+				
+				saveit();
+			}
+		</script>
+		
+		<script>
+			function saveit(){
+				var img = document.getElementById("theimage");
+				var linktosave = document.getElementById("linktosave");
+				 function already() {
+					// atob to base64_decode the data-URI
+					var image_data = atob(img.src.split(',')[1]);
+					// Use typed arrays to convert the binary data to a Blob
+					var arraybuffer = new ArrayBuffer(image_data.length);
+					var view = new Uint8Array(arraybuffer);
+					for (var i=0; i<image_data.length; i++) {
+						view[i] = image_data.charCodeAt(i) & 0xff;
+					}
+					try {
+						// This is the recommended method:
+						var blob = new Blob([arraybuffer], {type: 'application/octet-stream'});
+					} catch (e) {
+						// The BlobBuilder API has been deprecated in favour of Blob, but older
+						// browsers don't know about the Blob constructor
+						// IE10 also supports BlobBuilder, but since the `Blob` constructor
+						//  also works, there no need to add `MSBlobBuilder`.
+						var bb = new (window.WebKitBlobBuilder || window.MozBlobBuilder);
+						bb.append(arraybuffer);
+						var blob = bb.getBlob('application/octet-stream'); // <-- Here the Blob
+						blob.name = "imageFilename.png"
+					}
+
+					// Use the URL object to create a temporary URL
+					//var url = (window.webkitURL || window.URL).createObjectURL(blob);
+					
+					//var second = document.getElementById("linktosave");
+					//second.href = url;
+					//linktosave.href = url;
+					//location.href = url; // <-- Download!
+					
+					var link = document.createElement("a");
+					link.href = (window.webkitURL || window.URL).createObjectURL(blob);
+					link.download = "pic.png";
+					document.body.appendChild(link);
+					setTimeout(() => {
+						link.click();
+						document.body.removeChild(link);
+					}, 33);			
+					
+			
+					$("#dwl_but").css("background-image", "url(pics/download_80.png)");
+				}
+				already();
+			}	
+		</script>
+
+		<div id="bot">
+			<div class="tcell" id="bls_tcell">
+				<a href="http://alisabadass.tumblr.com"><img src="pics/alisa600_3_1.png" alt="" /></a>
+			</div>
+			<div class="tcell" id="bms_tcell">
+			</div>
+			<div class="tcell" id="brs_tcell">
+				<div id="share_but">
+					<button type="button" id="shareBut" onclick="share()">Share</button>
+				</div>
+				<div id="share_ph">
+				</div>
+			</div>
+					
+			<script>
+				
+				document.getElementById('shareBut').addEventListener('click', share, true);
+				function share(){
+
+					var picName = Math.floor(Date.now() / 1000);
+					var shareImage = document.getElementById("canvas").toDataURL("image/png");
+				
+					window.plugins.socialsharing.share(null, picName, shareImage, null);				
+				};
+			
+			</script>
+			
+			<script>
+			
+				function getSrcImg(pic){
+					$('#srcimg').attr('src', pic);
+					$('#srcimg').css('display', 'block');
+					console.log('srcImgVal:' + pic);
+				}
+				
+			</script>
+			
+			<script>
+			
+				function showSubm(){
+					$('#submRph').css('display', 'none');
+					$('#submR').css('display', 'block');
+				}
+				$("#url-up-inp").on('input', showSubm);
+				
+			</script>
+		
+			<script>
+
+				function getImgUrl(pic){
+					var imgUrl = pic;
+					console.log('imgUrl:' + imgUrl);
+					
+					document.getElementById('wsp').style.backgroundImage = "url(" + imgUrl + ")";
+					document.getElementById('wsp').style.backgroundPosition = "center";
+					document.getElementById('wsp').style.backgroundSize = "cover";
+					
+					
+					
+					clCanv();
+<!-- 					appear(); -->
+					detectUA();
+
+					console.log('call goSlid');
+					goSlid();
+
+				}
+			</script>
+				
+						
+			<script>
+				
+				var $img = $('img');
+							 
+				$img.load(function(){
+
+					$(this).removeAttr("width")
+						   .removeAttr("height")
+						   .css({ width: "", height: "" });
+				 
+					var width  = $(this).width();
+					var height = $(this).height();
+					
+					var natW = $(this).get(0).naturalWidth; 
+					var natH = $(this).get(0).naturalHeight;
+					
+					if ( ( natW > 900 ) || ( natH  > 900 ) ){ 
+					
+						if ( natW >= natH ){
+						
+							getProp = ( Math.round( ( ( natW / 900 ) * 100 ) ) / 100 );
+						
+						}
+						
+						if ( natW < natH ){
+						
+							getProp = ( Math.round( ( ( natH / 900 ) * 100 ) ) / 100 );
+						
+						}
+						
+						console.log( 'getProp:' + getProp );
+					
+					} else {
+					
+						getProp = 1;
+						console.log( 'getProp:' + getProp );
+					
+					}
+					
+					if (width > height) {
+						$('#srcimg').css('height', 'auto');
+						$('#srcimg').css('width', '100%');
+					}
+					if (width < height) {
+						$('#srcimg').css('width', 'auto');
+						$('#srcimg').css('height', '100%');
+					}
+					
+				});
+				 
+				$img.each(function() {
+					var src = $(this).attr('src');
+					$(this).attr('src', '');
+					$(this).attr('src', src);
+				});
+			
+			</script>
+
+			<script>
+			
+				$('#inp-wr-left-cell').on('click', function(){
+					$('#inp-wr').toggleClass('inp-wr-active');
+				});
+			
+			</script>
+
+		</div>
+		
+		<!-- CSS Preloader -->
+		
+		<div id="wrapper">
+
+		  <div class="circonf-wrapper">
+
+			<div class="circonf circonf-2">
+			</div>
+			
+		  </div> 
+		</div>
+		
+		<!-- /CSS Preloader -->
+		
+		<!-- Custom Alert -->
+		
+		<script>
+			var ALERT_TITLE = "Oops!";
+			var ALERT_BUTTON_TEXT = "Ok";
+
+			if(document.getElementById) {
+				window.alert = function(txt) {
+					createCustomAlert(txt);
+				}
+			}
+
+			function createCustomAlert(txt) {
+				d = document;
+
+				if(d.getElementById("modalContainer")) return;
+
+				mObj = d.getElementsByTagName("body")[0].appendChild(d.createElement("div"));
+				mObj.id = "modalContainer";
+				mObj.style.height = d.documentElement.scrollHeight + "px";
+
+				alertObj = mObj.appendChild(d.createElement("div"));
+				alertObj.id = "alertBox";
+				if(d.all && !window.opera) alertObj.style.top = document.documentElement.scrollTop + "px";
+				alertObj.style.left = (d.documentElement.scrollWidth - alertObj.offsetWidth)/2 + "px";
+				alertObj.style.visiblity="visible";
+
+				h1 = alertObj.appendChild(d.createElement("h1"));
+				h1.appendChild(d.createTextNode(ALERT_TITLE));
+
+				msg = alertObj.appendChild(d.createElement("p"));
+				//msg.appendChild(d.createTextNode(txt));
+				msg.innerHTML = txt;
+
+				btn = alertObj.appendChild(d.createElement("a"));
+				btn.id = "closeBtn";
+				btn.appendChild(d.createTextNode(ALERT_BUTTON_TEXT));
+				btn.href = "#";
+				btn.focus();
+				btn.onclick = function() { removeCustomAlert();return false; }
+
+				alertObj.style.display = "block";
+
+			}
+
+			function removeCustomAlert() {
+				document.getElementsByTagName("body")[0].removeChild(document.getElementById("modalContainer"));
+			}
+		</script>
+		
+		<!-- /Custom Alert -->
+
+		<script>
+			
+			function saveCanvas(myCanvasId) {
+			
+				function swBut(myCanvasId, callback){
+					document.getElementById('dwl_but').style.display = "none";
+					document.getElementById('dwl_ph').style.display = "inline-block";
+					<!-- document.getElementById('share_but').style.display = "none"; -->
+					<!-- document.getElementById('share_ph').style.display = "inline-block"; -->					
+					document.getElementById('wrapper').style.display = "table";
+
+					callback();
+				};
+				
+				swBut(myCanvasId, function(){
+				
+					function setT(){
+						stackBlurImage( 'srcimg', 'canvas', trueBlurRadius, '1', false );
+						canvas2ImagePlugin.saveImageDataToLibrary(
+						
+							function(msg){
+								alert("Image saved");
+								function getBackBut(){							
+									document.getElementById('dwl_ph').style.display = "none";
+									document.getElementById('dwl_but').style.display = "inline-block";
+									<!-- document.getElementById('share_ph').style.display = "none"; -->
+									<!-- document.getElementById('share_but').style.display = "inline-block"; -->
+									document.getElementById('wrapper').style.display = "none";
+								}
+								setTimeout(getBackBut, 30);
+							}, 
+							function(err){
+								alert(err);
+								
+								function getBackBut(){							
+									document.getElementById('dwl_ph').style.display = "none";
+									document.getElementById('dwl_but').style.display = "inline-block";
+									document.getElementById('wrapper').style.display = "none";
+								}
+								setTimeout(getBackBut, 30);
+							}, 
+							myCanvasId,
+							'.jpg',
+							80,
+							'Sqlury'
+						);
+					};
+					setTimeout(setT, 30);
+					
+				});				
+				
+<!-- 				saveCanvasFinally(myCanvId); -->
+			}		
+			
+		</script>
+		<script type="text/javascript" src="cordova.js"></script>
+   </body>
+</html>
